@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -26,14 +25,6 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${poppins.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=optional"
-          rel="stylesheet"
-        />
-      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

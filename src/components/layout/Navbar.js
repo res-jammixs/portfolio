@@ -1,4 +1,5 @@
 import { navLinks, profile } from "@/data/portfolio";
+import Icon from "@/components/ui/Icon";
 
 export default function Navbar() {
   return (
@@ -34,9 +35,7 @@ export default function Navbar() {
           className="inline-flex items-center gap-2 rounded-full bg-[var(--cream)] px-4 py-2 text-sm font-bold text-[var(--deep-blue)] transition hover:-translate-y-0.5 hover:bg-white"
         >
           <span>Projects</span>
-          <span className="material-symbols-rounded text-base" aria-hidden="true">
-            arrow_downward
-          </span>
+          <Icon name="arrowDownward" className="size-4" />
         </a>
       </nav>
     </header>

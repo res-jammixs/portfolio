@@ -1,7 +1,9 @@
+import Icon from "@/components/ui/Icon";
+
 export default function ActionLink({
   href,
   children,
-  icon = "arrow_forward",
+  icon = "arrowForward",
   variant = "primary",
 }) {
   const variants = {
@@ -17,9 +19,7 @@ export default function ActionLink({
       className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-300 ${variants[variant]}`}
     >
       <span>{children}</span>
-      <span className="material-symbols-rounded text-lg" aria-hidden="true">
-        {icon}
-      </span>
+      <Icon name={icon} />
     </a>
   );
 }

@@ -1,4 +1,5 @@
 import { palette, profile, projectNavLinks } from "@/data/portfolio";
+import Reveal from "@/components/animation/Reveal";
 import ActionLink from "@/components/ui/ActionLink";
 import ColorSwatch from "@/components/ui/ColorSwatch";
 
@@ -10,11 +11,11 @@ const heroStats = [
 
 export default function HeroSection() {
   const swatches = [
-    { color: palette.deepBlue, label: "#033f63", tall: true },
-    { color: palette.teal, label: "#28666e", tall: false },
-    { color: palette.sage, label: "#7c9885", tall: true },
-    { color: palette.olive, label: "#b5b682", tall: false },
-    { color: palette.cream, label: "#fedc97", tall: true },
+    { color: palette.deepBlue, label: "#033f63", tall: true, delay: 0 },
+    { color: palette.teal, label: "#28666e", tall: false, delay: 180 },
+    { color: palette.sage, label: "#7c9885", tall: true, delay: 360 },
+    { color: palette.olive, label: "#b5b682", tall: false, delay: 540 },
+    { color: palette.cream, label: "#fedc97", tall: true, delay: 720 },
   ];
 
   return (
@@ -27,37 +28,58 @@ export default function HeroSection() {
 
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
         <div>
-          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/70 bg-white/45 px-4 py-2 text-sm font-semibold text-[var(--teal)] shadow-[0_12px_35px_rgba(3,63,99,0.08)] backdrop-blur">
+          <Reveal
+            className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/70 bg-white/45 px-4 py-2 text-sm font-semibold text-[var(--teal)] shadow-[0_12px_35px_rgba(3,63,99,0.08)] backdrop-blur"
+            direction="down"
+          >
             <span className="size-2 rounded-full bg-[var(--teal)]" />
             {profile.school}
-          </div>
+          </Reveal>
 
-          <p className="mb-4 font-heading text-sm font-bold uppercase tracking-[0.28em] text-[var(--teal)]">
+          <Reveal
+            as="p"
+            className="mb-4 font-heading text-sm font-bold uppercase tracking-[0.28em] text-[var(--teal)]"
+            delay={90}
+          >
             Personal Portfolio
-          </p>
+          </Reveal>
 
-          <h1 className="max-w-4xl font-heading text-5xl font-black leading-[0.95] text-[var(--deep-blue)] sm:text-6xl md:text-7xl lg:text-8xl">
+          <Reveal
+            as="h1"
+            className="max-w-4xl font-heading text-5xl font-black leading-[0.95] text-[var(--deep-blue)] sm:text-6xl md:text-7xl lg:text-8xl"
+            delay={160}
+            direction="left"
+          >
             {profile.name}
-          </h1>
+          </Reveal>
 
-          <p className="mt-7 max-w-2xl text-base leading-8 text-[rgba(9,47,69,0.74)] md:text-lg">
+          <Reveal
+            as="p"
+            className="mt-7 max-w-2xl text-base leading-8 text-[rgba(9,47,69,0.74)] md:text-lg"
+            delay={240}
+          >
             {profile.summary} Based in {profile.location}, I design interfaces,
             build web systems, and explore games while growing through practical
             projects.
-          </p>
+          </Reveal>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Reveal
+            className="mt-8 flex flex-col gap-3 sm:flex-row"
+            delay={320}
+          >
             <ActionLink href="#projects">View Projects</ActionLink>
             <ActionLink href="#contact" variant="secondary" icon="mail">
               Contact Me
             </ActionLink>
-          </div>
+          </Reveal>
 
           <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">
-            {heroStats.map((stat) => (
-              <div
+            {heroStats.map((stat, index) => (
+              <Reveal
+                as="div"
                 key={stat.label}
                 className="rounded-[8px] border border-white/60 bg-white/40 p-4 shadow-[0_14px_35px_rgba(3,63,99,0.08)] backdrop-blur"
+                delay={390 + index * 80}
               >
                 <p className="font-heading text-2xl font-black text-[var(--deep-blue)]">
                   {stat.value}
@@ -65,21 +87,28 @@ export default function HeroSection() {
                 <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[rgba(3,63,99,0.58)]">
                   {stat.label}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         <div className="relative">
-          <div className="rounded-[8px] border border-white/70 bg-white/35 p-4 shadow-[0_28px_75px_rgba(3,63,99,0.18)] backdrop-blur-xl md:p-5">
+          <Reveal
+            className="rounded-[8px] border border-white/70 bg-white/35 p-4 shadow-[0_28px_75px_rgba(3,63,99,0.18)] backdrop-blur-xl md:p-5"
+            delay={220}
+            direction="right"
+          >
             <div className="grid grid-cols-5 items-end gap-2 md:gap-3">
               {swatches.map((swatch) => (
                 <ColorSwatch key={swatch.label} {...swatch} />
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="absolute -bottom-8 left-4 right-4 rounded-[8px] border border-white/70 bg-[var(--deep-blue)] p-4 text-white shadow-[0_24px_55px_rgba(3,63,99,0.24)] md:left-10 md:right-10">
+          <Reveal
+            className="absolute -bottom-8 left-4 right-4 rounded-[8px] border border-white/70 bg-[var(--deep-blue)] p-4 text-white shadow-[0_24px_55px_rgba(3,63,99,0.24)] md:left-10 md:right-10"
+            delay={460}
+          >
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--cream)]">
               Project templates queued
             </p>
@@ -93,7 +122,7 @@ export default function HeroSection() {
                 </span>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
