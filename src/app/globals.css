@@ -1,13 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #f8f3e5;
-  --foreground: #092f45;
-  --deep-blue: #033f63;
-  --teal: #28666e;
-  --sage: #7c9885;
-  --olive: #b5b682;
-  --cream: #fedc97;
+  --background: #f8fafc;
+  --foreground: #0f233a;
+  --deep-blue: #0b2341;
+  --navy: #102a43;
+  --teal: #0f766e;
+  --blue: #2563eb;
+  --slate: #64748b;
+  --mist: #f8fafc;
+  --warm: #f59e0b;
+  --font-poppins: "Poppins", "Montserrat", sans-serif;
+  --font-montserrat: "Montserrat", "Poppins", sans-serif;
 }
 
 @theme inline {
@@ -20,7 +25,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins);
+  font-size: 15px;
 }
 
 html {
@@ -29,7 +35,7 @@ html {
 }
 
 ::selection {
-  background: var(--cream);
+  background: rgba(15, 118, 110, 0.18);
   color: var(--deep-blue);
 }
 

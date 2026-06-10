@@ -1,11 +1,11 @@
 export default function Tag({ children, tone = "light" }) {
   const tones = {
     light:
-      "border-[rgba(3,63,99,0.12)] bg-white/55 text-[rgba(3,63,99,0.78)]",
+      "border-[rgba(15,35,58,0.12)] bg-[var(--mist)] text-[rgba(15,35,58,0.78)]",
     dark:
       "border-white/10 bg-white/10 text-white/85",
     warm:
-      "border-[rgba(254,220,151,0.8)] bg-[rgba(254,220,151,0.35)] text-[var(--deep-blue)]",
+      "border-[rgba(245,158,11,0.3)] bg-[rgba(245,158,11,0.1)] text-[var(--deep-blue)]",
   };
 
   return (
