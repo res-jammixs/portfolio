@@ -1,129 +1,151 @@
-import { palette, profile, projectNavLinks } from "@/data/portfolio";
+import { contact, heroSkills, heroStats, profile } from "@/data/portfolio";
 import Reveal from "@/components/animation/Reveal";
 import ActionLink from "@/components/ui/ActionLink";
-import ColorSwatch from "@/components/ui/ColorSwatch";
-
-const heroStats = [
-  { value: "3rd", label: "Year IT Student" },
-  { value: "Full", label: "Stack Learner" },
-  { value: "UI", label: "UX + Frontend" },
-];
+import Icon from "@/components/ui/Icon";
 
 export default function HeroSection() {
-  const swatches = [
-    { color: palette.deepBlue, label: "#033f63", tall: true, delay: 0 },
-    { color: palette.teal, label: "#28666e", tall: false, delay: 180 },
-    { color: palette.sage, label: "#7c9885", tall: true, delay: 360 },
-    { color: palette.olive, label: "#b5b682", tall: false, delay: 540 },
-    { color: palette.cream, label: "#fedc97", tall: true, delay: 720 },
-  ];
-
   return (
     <section
       id="home"
-      className="relative isolate flex min-h-screen items-center px-5 pb-12 pt-28 md:px-8 md:pb-16 md:pt-32"
+      className="relative isolate flex min-h-[calc(100vh-5rem)] items-center overflow-hidden px-5 pb-10 pt-24 md:px-8 md:pb-12 md:pt-28"
     >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_12%,rgba(254,220,151,0.8),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.7),rgba(124,152,133,0.2))]" />
-      <div className="absolute left-1/2 top-24 -z-10 h-72 w-[min(42rem,80vw)] -translate-x-1/2 rounded-full bg-white/35 blur-3xl" />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_52%,#eef6f6_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(15,35,58,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(15,35,58,0.045)_1px,transparent_1px)] bg-[size:76px_76px] opacity-70" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-px bg-[linear-gradient(90deg,transparent,rgba(15,118,110,0.28),transparent)]" />
+      <div className="absolute bottom-0 left-1/2 -z-10 h-80 w-[min(70rem,92vw)] -translate-x-1/2 rounded-full bg-[rgba(15,118,110,0.08)] blur-3xl" />
 
-      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
-        <div>
-          <Reveal
-            className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/70 bg-white/45 px-4 py-2 text-sm font-semibold text-[var(--teal)] shadow-[0_12px_35px_rgba(3,63,99,0.08)] backdrop-blur"
-            direction="down"
-          >
-            <span className="size-2 rounded-full bg-[var(--teal)]" />
-            {profile.school}
-          </Reveal>
-
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-8 lg:grid-cols-[1.02fr_0.98fr]">
+        <div className="relative z-10">
           <Reveal
             as="p"
-            className="mb-4 font-heading text-sm font-bold uppercase tracking-[0.28em] text-[var(--teal)]"
-            delay={90}
+            className="mb-3 font-heading text-sm font-bold uppercase text-[var(--teal)]"
+            delay={80}
           >
-            Personal Portfolio
+            {profile.role}
           </Reveal>
 
           <Reveal
             as="h1"
-            className="max-w-4xl font-heading text-5xl font-black leading-[0.95] text-[var(--deep-blue)] sm:text-6xl md:text-7xl lg:text-8xl"
-            delay={160}
+            className="max-w-4xl font-heading text-4xl font-black leading-tight text-[var(--deep-blue)] sm:text-[2.85rem] md:text-[3.1rem]"
+            delay={150}
             direction="left"
           >
-            {profile.name}
+            {profile.shortName}
           </Reveal>
 
           <Reveal
             as="p"
-            className="mt-7 max-w-2xl text-base leading-8 text-[rgba(9,47,69,0.74)] md:text-lg"
-            delay={240}
+            className="mt-4 max-w-2xl text-base font-semibold leading-7 text-[var(--navy)] md:text-lg"
+            delay={220}
           >
-            {profile.summary} Based in {profile.location}, I design interfaces,
-            build web systems, and explore games while growing through practical
-            projects.
+            {profile.headline}
           </Reveal>
 
           <Reveal
-            className="mt-8 flex flex-col gap-3 sm:flex-row"
-            delay={320}
+            as="p"
+            className="mt-4 max-w-2xl text-sm leading-7 text-[rgba(15,35,58,0.72)] md:text-base"
+            delay={280}
           >
+            I build practical projects that connect product thinking, clean
+            interfaces, testing, and working software.
+          </Reveal>
+
+          <Reveal className="mt-6 flex flex-col gap-3 sm:flex-row" delay={350}>
             <ActionLink href="#projects">View Projects</ActionLink>
             <ActionLink href="#contact" variant="secondary" icon="mail">
               Contact Me
             </ActionLink>
+            <ActionLink
+              href={contact.github}
+              variant="ghost"
+              icon="github"
+              external
+            >
+              GitHub
+            </ActionLink>
           </Reveal>
+        </div>
 
-          <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">
-            {heroStats.map((stat, index) => (
-              <Reveal
-                as="div"
+        <Reveal
+          className="relative rounded-[8px] border border-[rgba(15,35,58,0.12)] bg-white p-4 shadow-[0_28px_80px_rgba(15,35,58,0.12)] md:p-5"
+          delay={240}
+          direction="right"
+        >
+          <div className="flex items-start justify-between gap-4 border-b border-[rgba(15,35,58,0.1)] pb-3">
+            <div>
+              <p className="font-heading text-xs font-bold uppercase text-[var(--teal)]">
+                Portfolio focus
+              </p>
+              <h2 className="mt-2 font-heading text-lg font-black leading-snug text-[var(--deep-blue)] md:text-xl">
+                Portfolio focus: interfaces, systems, QA workflows, and games.
+              </h2>
+            </div>
+          </div>
+
+          <div className="mt-3 grid gap-2 sm:grid-cols-3">
+            {heroStats.map((stat) => (
+              <div
                 key={stat.label}
-                className="rounded-[8px] border border-white/60 bg-white/40 p-4 shadow-[0_14px_35px_rgba(3,63,99,0.08)] backdrop-blur"
-                delay={390 + index * 80}
+                className="rounded-[8px] border border-[rgba(15,35,58,0.1)] bg-[var(--mist)] px-3 py-2"
               >
-                <p className="font-heading text-2xl font-black text-[var(--deep-blue)]">
+                <p className="font-heading text-xl font-black leading-none text-[var(--deep-blue)]">
                   {stat.value}
                 </p>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[rgba(3,63,99,0.58)]">
+                <p className="mt-1 text-[11px] font-semibold uppercase leading-tight text-[rgba(15,35,58,0.62)]">
                   {stat.label}
                 </p>
-              </Reveal>
+              </div>
             ))}
           </div>
-        </div>
 
-        <div className="relative">
-          <Reveal
-            className="rounded-[8px] border border-white/70 bg-white/35 p-4 shadow-[0_28px_75px_rgba(3,63,99,0.18)] backdrop-blur-xl md:p-5"
-            delay={220}
-            direction="right"
-          >
-            <div className="grid grid-cols-5 items-end gap-2 md:gap-3">
-              {swatches.map((swatch) => (
-                <ColorSwatch key={swatch.label} {...swatch} />
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal
-            className="absolute -bottom-8 left-4 right-4 rounded-[8px] border border-white/70 bg-[var(--deep-blue)] p-4 text-white shadow-[0_24px_55px_rgba(3,63,99,0.24)] md:left-10 md:right-10"
-            delay={460}
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--cream)]">
-              Project templates queued
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {projectNavLinks.slice(0, 5).map((link) => (
-                <span
-                  key={link.href}
-                  className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/85"
+          <div className="mt-3 grid gap-2 sm:grid-cols-3">
+            {["Frontend and full-stack systems", "UI/UX and branding", "SQAE, games, and project coordination"].map(
+              (item) => (
+                <div
+                  key={item}
+                  className="flex min-h-10 items-center gap-2 rounded-[8px] border border-[rgba(15,35,58,0.1)] bg-white px-2.5 py-2 text-xs font-semibold leading-tight text-[rgba(15,35,58,0.76)]"
                 >
-                  {link.label}
-                </span>
+                  <span className="grid size-5 shrink-0 place-items-center rounded-full bg-[rgba(15,118,110,0.1)] text-[var(--teal)]">
+                    <Icon name="check" className="size-3" />
+                  </span>
+                  {item}
+                </div>
+              ),
+            )}
+          </div>
+
+          <div className="mt-3 border-t border-[rgba(15,35,58,0.1)] pt-3">
+            <div className="mb-2 flex items-center justify-between gap-3">
+              <p className="font-heading text-xs font-bold uppercase text-[rgba(15,35,58,0.58)]">
+                Core stack
+              </p>
+              <span className="h-px flex-1 bg-[rgba(15,35,58,0.08)]" />
+            </div>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
+              {heroSkills.map((skill) => (
+                <div
+                  key={skill.label}
+                  className="flex min-h-10 flex-col items-center justify-center gap-1 rounded-[8px] border border-[rgba(15,35,58,0.1)] bg-[var(--mist)] px-2 py-2 text-center text-[11px] font-bold leading-tight text-[var(--deep-blue)]"
+                >
+                  <Icon name={skill.icon} className="size-4 text-[var(--teal)]" />
+                  <span>{skill.label}</span>
+                </div>
               ))}
             </div>
-          </Reveal>
-        </div>
+          </div>
+
+          <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`}
+            target="_blank"
+            rel="noreferrer"
+            className="-mx-4 -mb-4 mt-4 flex min-h-14 items-center justify-between gap-4 rounded-b-[8px] bg-[var(--deep-blue)] px-4 py-3 text-sm font-black text-white shadow-[0_-1px_0_rgba(255,255,255,0.18)_inset] transition hover:bg-[var(--navy)] md:-mx-5 md:-mb-5 md:px-5"
+          >
+            <span>Open to industry opportunities</span>
+            <span className="grid size-9 shrink-0 place-items-center rounded-[8px] bg-white/15">
+              <Icon name="externalLink" className="size-4" />
+            </span>
+          </a>
+        </Reveal>
       </div>
     </section>
   );
