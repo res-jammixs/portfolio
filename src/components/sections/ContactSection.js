@@ -41,14 +41,7 @@ export default function ContactSection() {
               >
                 GitHub
               </ActionLink>
-              <ActionLink
-                href={contact.portfolio}
-                variant="secondary"
-                icon="externalLink"
-                external
-              >
-                Portfolio
-              </ActionLink>
+              
             </div>
           </div>
         </div>
