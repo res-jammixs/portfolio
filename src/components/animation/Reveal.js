@@ -10,6 +10,7 @@ export default function Reveal({
   direction = "up",
   once = true,
   style = {},
+  ...props
 }) {
   const nodeRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -51,6 +52,7 @@ export default function Reveal({
       className={`reveal ${isVisible ? "is-visible" : ""} ${className}`}
       data-direction={direction}
       style={{ ...style, "--reveal-delay": `${delay}ms` }}
+      {...props}
     >
       {children}
     </Component>
