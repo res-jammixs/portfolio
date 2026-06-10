@@ -338,6 +338,7 @@ export const featuredProjects = [
     ],
     previewSlots: ["Logo concept", "Brand applications", "Publication material"],
   }),
+  
 ];
 
 export const experienceHighlights = [

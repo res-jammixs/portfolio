@@ -1,5 +1,4 @@
-import { featuredProjects } from "@/data/portfolio";
-import ProjectCard from "@/components/ui/ProjectCard";
+import ProjectsCarousel from "@/components/ui/ProjectsCarousel";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function ProjectsSection() {
@@ -16,15 +15,7 @@ export default function ProjectsSection() {
           description="A concise view of the projects and practical experience from my CV, focused on roles, tools, and what each work demonstrates."
         />
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
-          {featuredProjects.map((project, index) => (
-            <ProjectCard
-              key={project.name}
-              project={project}
-              delay={index * 70}
-            />
-          ))}
-        </div>
+        <ProjectsCarousel />
       </div>
     </section>
   );
